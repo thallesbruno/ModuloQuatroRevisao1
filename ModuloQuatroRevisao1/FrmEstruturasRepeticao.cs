@@ -12,6 +12,7 @@ namespace ModuloQuatroRevisao1
 {
     public partial class FrmEstruturasRepeticao : Form
     {
+        private List<int> lista = new List<int>();
         public FrmEstruturasRepeticao()
         {
             InitializeComponent();
@@ -43,7 +44,7 @@ namespace ModuloQuatroRevisao1
                 itmx.SubItems.Add(new ListViewItem.ListViewSubItem(null, "="));
                 itmx.SubItems.Add(new ListViewItem.ListViewSubItem(null, (iValorLido * i).ToString()));
             }*/
-            int i = 0;
+            /*int i = 0;
             while (i <= 10)
             {
                 ListViewItem itmx = listView1.Items.Add(iValorLido.ToString());
@@ -52,7 +53,17 @@ namespace ModuloQuatroRevisao1
                 itmx.SubItems.Add(new ListViewItem.ListViewSubItem(null, "="));
                 itmx.SubItems.Add(new ListViewItem.ListViewSubItem(null, (iValorLido * i).ToString()));
                 i++;
-            }
+            }*/
+            int i = 0;
+            do
+            {
+                ListViewItem itmx = listView1.Items.Add(iValorLido.ToString());
+                itmx.SubItems.Add(new ListViewItem.ListViewSubItem(null, "*"));
+                itmx.SubItems.Add(new ListViewItem.ListViewSubItem(null, i.ToString()));
+                itmx.SubItems.Add(new ListViewItem.ListViewSubItem(null, "="));
+                itmx.SubItems.Add(new ListViewItem.ListViewSubItem(null, (iValorLido * i).ToString()));
+                i++;
+            } while (i <= 10);
         }
 
         private void FrmEstruturasRepeticao_Load(object sender, EventArgs e)
@@ -74,6 +85,28 @@ namespace ModuloQuatroRevisao1
             {
                 comboBox1.Items.Add(i.ToString());
                 i++;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (textBox2.Text.Trim().Equals(String.Empty))
+            {
+                MessageBox.Show("Deve ser informado um valor!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox2.Focus();
+                return;
+            }
+            lista.Add(Convert.ToInt32(textBox2.Text.Trim()));
+            listBox1.Items.Add(textBox2.Text.Trim());
+            textBox2.Text = String.Empty;
+            textBox2.Focus();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            foreach (var item in lista)
+            {
+                listBox2.Items.Add(item.ToString());
             }
         }
     }
