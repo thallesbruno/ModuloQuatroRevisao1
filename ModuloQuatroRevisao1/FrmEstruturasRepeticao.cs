@@ -104,9 +104,9 @@ namespace ModuloQuatroRevisao1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            foreach (var item in lista)
+            foreach (String item in listBox1.Items)
             {
-                listBox2.Items.Add(item.ToString());
+                listBox2.Items.Add(item);
             }
         }
     }
