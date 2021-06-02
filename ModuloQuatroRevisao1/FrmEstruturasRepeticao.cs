@@ -64,6 +64,37 @@ namespace ModuloQuatroRevisao1
                 itmx.SubItems.Add(new ListViewItem.ListViewSubItem(null, (iValorLido * i).ToString()));
                 i++;
             } while (i <= 10);
+
+            //Trabalhando com vetores
+
+            int[] vetor = new int[] {10, 20, 30, 40, 50};
+            int iPrimeiroValor;
+            int soma = 0;
+            int index = 0;
+            iPrimeiroValor = vetor[0];
+
+            /*vetor[0] = 1;
+            vetor[1] = 10;
+            vetor[2] = 20;*/
+
+            for (index = 0; index < 10; index++)
+            {
+                soma = soma + vetor[index];
+            }
+
+            /*index = 0;
+            while (index < 10)
+            {
+                soma = soma + vetor[index];
+                index++;
+            }
+
+            index = 0;
+            do
+            {
+                soma = soma + vetor[index];
+                index++;
+            } while (index < 10);*/
         }
 
         private void FrmEstruturasRepeticao_Load(object sender, EventArgs e)
